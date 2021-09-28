@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   SearchIcon,
   UserCircleIcon,
@@ -8,19 +9,15 @@ import {
 import { 
   PencilIcon,
   CogIcon,
-  LogoutIcon
+  LogoutIcon,
+  DesktopComputerIcon
 } from '@heroicons/react/outline'
 import { 
   Menu, 
   Popover, 
   Transition 
 } from '@headlessui/react'
-import { 
-  Fragment, 
-  useEffect, 
-  useRef, 
-  useState 
-} from 'react'
+import { Fragment } from 'react'
 
 // Dummy notification list
 const notifications = [
@@ -49,10 +46,12 @@ function Header() {
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-gray-800 shadow-md py-5 px-5 md:px-10">
       {/* Logo/Link to Home */}
       <div className="relative flex items-center h-10 my-auto w-32">
-        <div className="cursor-pointer p-2 bg-transparent hover:shadow-md">
-          <p className="inline text-2xl font-bold text-gray-100">Skill</p>
-          <p className="inline text-2xl font-bold text-purple-500">Box</p>
-        </div>
+        <Link href="/">
+          <div className="cursor-pointer p-2 bg-transparent hover:shadow-md">
+            <p className="inline text-2xl font-bold text-gray-100">Skill</p>
+            <p className="inline text-2xl font-bold text-purple-500">Box</p>
+          </div>
+        </Link>
       </div>
 
       {/* Search */}
@@ -96,9 +95,9 @@ function Header() {
                 leaveFrom="opacity-100 translate-y-0"
                 leaveTo="opacity-0 translate-y-1"
               >
-                <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-3/4 left-1/4 sm:px-0 lg:max-w-3xl">
+                <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-3/4 left-1/4 sm:px-0">
                   <div className="overflow-hidden rounded-lg shadow-lg ring-2 ring-gray-600 ring-opacity-50">
-                    <div className="relative grid gap-8 bg-gray-800 p-7 lg:grid-cols-2">
+                    <div className="relative grid gap-8 bg-gray-800 p-7">
                       {notifications.map((item) => (
                         <a
                           key={item.name}
@@ -120,19 +119,36 @@ function Header() {
                       ))}
                     </div>
                     <div className="p-4 bg-gray-800">
-                      <a
-                        href="##"
-                        className="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                      >
-                        <span className="flex items-center">
-                          <span className="text-sm font-medium text-white">
-                            Notification Settings
+                      <Link href="/settings/notifications">
+                        <div
+                          className="cursor-pointer flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                        >
+                          <span className="flex items-center">
+                            <span className="text-sm font-medium text-white">
+                              <CogIcon
+                              className="inline w-5 h-5 mr-2 text-purple-400"
+                              aria-hidden="true"
+                              />
+                              Notification Settings
+                            </span>
                           </span>
-                        </span>
-                        <span className="block text-sm">
-                          Customize your notifications
-                        </span>
-                      </a>
+                        </div>
+                      </Link>
+                      <Link href="/notifications">
+                        <div
+                          className="cursor-pointer flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                        >
+                          <span className="flex items-center">
+                            <DesktopComputerIcon
+                              className="inline w-5 h-5 mr-2 text-purple-400"
+                              aria-hidden="true"
+                            />
+                            <span className="text-sm font-medium text-white">
+                              Notification Settings
+                            </span>
+                          </span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </Popover.Panel>
@@ -162,76 +178,82 @@ function Header() {
 
               {/* Profile & Settings */}
               <div className="px-1 py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${
-                        active ? 'bg-gray-700 text-white' : 'text-white'
-                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                    >
-                      {active ? (
-                        <PencilIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PencilIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                      )}
-                      Profile
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${
-                        active ? 'bg-gray-700 text-white' : 'text-white'
-                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                    >
-                      {active ? (
-                        <CogIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <CogIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                      )}
-                      Settings
-                    </button>
-                  )}
-                </Menu.Item>
+                <Link href="/profile">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? 'bg-gray-700 text-white' : 'text-white'
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      >
+                        {active ? (
+                          <PencilIcon
+                            className="w-5 h-5 mr-2 text-purple-400"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <PencilIcon
+                            className="w-5 h-5 mr-2 text-purple-400"
+                            aria-hidden="true"
+                          />
+                        )}
+                        Profile
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Link>
+                <Link href="/settings/general">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? 'bg-gray-700 text-white' : 'text-white'
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      >
+                        {active ? (
+                          <CogIcon
+                            className="w-5 h-5 mr-2 text-purple-400"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <CogIcon
+                            className="w-5 h-5 mr-2 text-purple-400"
+                            aria-hidden="true"
+                          />
+                        )}
+                        Settings
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Link>
               </div>
 
               {/* Logout */}
               <div className="px-1 py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${
-                        active ? 'bg-gray-700 text-white' : 'text-white'
-                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                    >
-                      {active ? (
-                        <LogoutIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <LogoutIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                      )}
-                      Logout
-                    </button>
-                  )}
-                </Menu.Item>
+                <Link href="/">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? 'bg-gray-700 text-white' : 'text-white'
+                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      >
+                        {active ? (
+                          <LogoutIcon
+                            className="w-5 h-5 mr-2 text-purple-400"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <LogoutIcon
+                            className="w-5 h-5 mr-2 text-purple-400"
+                            aria-hidden="true"
+                          />
+                        )}
+                        Logout
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Link>
               </div>
             </Menu.Items>
           </Transition>
