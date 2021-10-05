@@ -5,7 +5,7 @@ import Header from '../components/Header'
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Head>
         <title>Skill Box</title>
         <link rel="icon" href="/favicon.ico" />
