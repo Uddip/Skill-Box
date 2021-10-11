@@ -81,7 +81,7 @@ function TextChat() {
         <input
           className="flex-grow pl-5 bg-transparent outline-none text-md text-gray-500 placeholder-gray-400 focus:placeholder-gray-800" 
           type="text"
-          placeholder="Start your search"
+          placeholder="Type your message here..."
         />
         <p className="hidden md:inline-flex bg-purple-500 text-gray-100 rounded-full p-2 cursor-pointer md:mx-2 text-xl">Send!</p>
       </div>
