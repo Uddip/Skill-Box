@@ -61,7 +61,7 @@ function Header() {
           type="text"
           placeholder="Start your search"
         />
-        <SearchIcon className="hidden md:inline-flex h-8 bg-purple-500 text-gray-100 rounded-full p-2 cursor-pointer md:mx-2" />
+        <SearchIcon className="hidden md:inline h-8 bg-purple-500 text-gray-100 rounded-full p-2 cursor-pointer md:mx-2" />
       </div>
 
       {/* Options */}

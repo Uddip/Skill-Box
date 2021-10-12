@@ -1,5 +1,11 @@
 import React, { useRef, useState } from 'react'
+import Image from "next/image";
 import { useAuth } from '../contexts/AuthContext'
+import { 
+  MailIcon, 
+  KeyIcon,
+  LockClosedIcon
+} from '@heroicons/react/solid'
 
 function Signup() {
   const emailRef = useRef()
@@ -31,11 +37,15 @@ function Signup() {
   }
 
   return (
-    <section>
-      <div className="w-full sm:w-5/6 md:w-8/12 lg:w-6/12 xl:w-5/12 px-4 mx-auto pt-6">
+    <section 
+      className="bg-center bg-cover bg-no-repeat md:pb-1"
+      style={{backgroundImage: "url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80)"}}
+    >
+      <div class="absolute bg-black opacity-40 inset-0 z-0 mb-2 md:-mb-1"></div>
+      <div className=" max-w-sm sm:max-w-sm md:max-w-sm px-4 mx-auto py-12">
 
         {/* SignUp Card */}
-        <div className="relative flex flex-col break-words w-full mb-6 shadow-lg rounded-lg bg-indigo-100">
+        <div className="relative flex flex-col break-words w-full  shadow-lg rounded-lg bg-gray-200 bg-opacity-90">
           <div className="rounded-t px-6 py-6">
 
             {/* SignUp Title */}
@@ -45,6 +55,7 @@ function Signup() {
               </h6>
               {/* Test for account information */}
               {/* {JSON.stringify(currentUser)} */}
+              {/* {currentUser && currentUser.email} */}
               {error && 
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-left mt-5" role="alert">
                   <strong class="font-bold">Oops, something went wrong!</strong>
@@ -53,39 +64,48 @@ function Signup() {
             </div>
 
             {/* User Credentials Sign Up */}
-            <div className="flex-auto px-4 lg:px-10 py-6">
+            <div className="flex-auto px-4 py-6">
               <form onSubmit={handleSubmit}>
                 
                 {/* Text Input */}
                 <div id="email"
                   className="form-group relative w-full mb-4">
-                  <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Email
-                  </label>
-                  <input type="email"
-                    ref={emailRef}
-                    required
-                    className="px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Email"/>
+                  {/* <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Email
+                  </label> */}
+                  <div className="flex flex-row items-center bg-white rounded shadow px-3 py-3">
+                    <MailIcon className="h-5 text-gray-400"/>
+                    <input type="email"
+                      ref={emailRef}
+                      required
+                      className=" pl-3 bg-transparent w-full placeholder-gray-300 text-gray-600 text-sm focus:outline-none focus:placeholder-transparent"
+                      placeholder="Email"/>
+                  </div>
                 </div>
                 <div id="password"
                   className="form-group relative w-full my-5">
-                  <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Password
-                  </label>
-                  <input type="password"
-                    ref={passwordRef}
-                    required
-                    className="px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Password"/>
+                  {/* <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Password
+                  </label> */}
+                  <div className="flex flex-row items-center bg-white rounded shadow px-3 py-3">
+                    <KeyIcon className="h-5 text-gray-400"/>
+                    <input type="password"
+                      ref={passwordRef}
+                      required
+                      className=" pl-3 bg-transparent w-full placeholder-gray-300 text-gray-600 text-sm focus:outline-none focus:placeholder-transparent"
+                      placeholder="Password"/>
+                  </div>
                 </div>
                 <div id="passwordConfirm"
                   className="form-group relative w-full mt-5">
-                  <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Password Confirmation
-                  </label>
-                  <input type="password"
-                    ref={passwordConfrimRef}
-                    required
-                    className="px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Re-enter Password"/>
+                  {/* <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Password Confirmation
+                  </label> */}
+                  <div className="flex flex-row items-center bg-white rounded shadow px-3 py-3">
+                    <LockClosedIcon className="h-5 text-gray-400"/>
+                    <input type="password"
+                      ref={passwordConfrimRef}
+                      required
+                      className=" pl-3 bg-transparent w-full placeholder-gray-300 text-gray-600 text-sm focus:outline-none focus:placeholder-transparent"
+                      placeholder="Re-enter Password"/>
+                  </div>
                 </div>
 
                 {/* Terms & Policy */}
