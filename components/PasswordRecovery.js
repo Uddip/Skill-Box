@@ -98,29 +98,10 @@ function PasswordRecovery() {
                     disabled={loading}
                     className="bg-purple-600 text-white hover:bg-purple-800 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                   >
-                    Login
+                    Reset Password
                   </button>
                 </div>
               </form>
-            </div>
-
-            {/* Providers */}
-            <div className="text-center">
-              <hr className="mt-6 border-gray-300" />
-              <div className="text-gray-500 text-center mt-2 mb-5 font-bold">
-                <h2>Single-Sign On</h2>
-              </div>
-              <button
-                className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                type="button"
-              >
-                <img
-                  alt="..."
-                  className="w-5 mr-1"
-                  src="https://demos.creative-tim.com/notus-js/assets/img/google.svg"
-                />
-                Google
-              </button>
             </div>
           </div>
 
