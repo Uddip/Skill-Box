@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "next": "^11.1.2",
+    "pusher": "^5.0.0",
+    "pusher-js": "^7.0.3",
+    "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.4",
+    "react-dom": "^17.0.2",
+    "sentiment": "^5.0.2",
+    "simple-peer": "^9.11.0",
+    "socket.io-client": "^4.3.2",
+    "tailwind-scrollbar-hide": "^1.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.15"
+  },
+  "name": "Skill-Box",
+  "description": "This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).",
+  "version": "1.0.0",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uddip/Skill-Box.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uddip/Skill-Box/issues"
+  },
+  "homepage": "https://github.com/Uddip/Skill-Box#readme"
+}
