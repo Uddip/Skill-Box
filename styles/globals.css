@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu {
+    @apply absolute right-0 w-56 mt-2 origin-top-right bg-gray-800 divide-y divide-gray-600 rounded-lg shadow-lg ring-1 ring-gray-600 ring-opacity-50 focus:outline-none;
+  }
+
+  .menu.active {
+    @apply opacity-100 visible translate-y-0 transition-all duration-150 ease-in transform;
+  }
+
+  .menu.inactive {
+    @apply hidden -translate-x-5 opacity-0 transition-all duration-150 ease-in transform;
+  }
+}

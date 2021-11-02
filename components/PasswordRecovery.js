@@ -5,29 +5,24 @@ import { useRouter } from "next/router";
 import { useAuth } from "../contexts/AuthContext";
 import { MailIcon, KeyIcon, LockClosedIcon } from "@heroicons/react/solid";
 
-function Signup() {
+function PasswordRecovery() {
   const router = useRouter();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfrimRef = useRef();
-  const { signup, currentUser } = useAuth();
+  const { login, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfrimRef.current.value) {
-      return setError("Passwords do not match");
-    }
-
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       router.push("/");
     } catch {
-      setError("Account was not created");
+      setError("Login failed");
     }
 
     setLoading(false);
@@ -41,17 +36,17 @@ function Signup() {
           "url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80)",
       }}
     >
-      {/* <div class="absolute bg-black opacity-40 inset-0 z-0 mb-12 md:mb-8"></div> */}
+      {/* <div class="absolute bg-black opacity-40 inset-0 z-0 mb-36 md:mb-32"></div> */}
       <div className=" max-w-sm sm:max-w-sm md:max-w-sm px-4 mx-auto py-12">
         {/* SignUp Card */}
         <div className="relative flex flex-col break-words w-full  shadow-lg rounded-lg bg-gray-200 bg-opacity-90">
           <div className="rounded-t px-6 py-6">
             {/* SignUp Title */}
             <div className="text-center mb-3">
-              <h6 className="text-gray-600 text-lg font-bold">Sign Up</h6>
+              <h6 className="text-gray-600 text-lg font-bold">Login</h6>
               {/* Test for account information */}
               {/* {JSON.stringify(currentUser.uid)} */}
-              {/* {currentUser && currentUser.email} */}
+              {currentUser && currentUser.email}
               {error && (
                 <div
                   class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-left mt-5"
@@ -95,40 +90,6 @@ function Signup() {
                     />
                   </div>
                 </div>
-                <div
-                  id="passwordConfirm"
-                  className="form-group relative w-full mt-5"
-                >
-                  {/* <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Password Confirmation
-                  </label> */}
-                  <div className="flex flex-row items-center bg-white rounded shadow px-3 py-3">
-                    <LockClosedIcon className="h-5 text-gray-400" />
-                    <input
-                      type="password"
-                      ref={passwordConfrimRef}
-                      required
-                      className=" pl-3 bg-transparent w-full placeholder-gray-300 text-gray-600 text-sm focus:outline-none focus:placeholder-transparent"
-                      placeholder="Re-enter Password"
-                    />
-                  </div>
-                </div>
-
-                {/* Terms & Policy */}
-                <div>
-                  <label className="inline-flex items-center cursor-pointer mt-3">
-                    <input
-                      id="termsCheck"
-                      type="checkbox"
-                      className="rounded text-gray-700 ml-1 w-5 ease-linear transition-all duration-150"
-                    />
-                    <span className="ml-2 text-sm font-semibold text-gray-600">
-                      I agree with the{" "}
-                      <a href="##" className=" text-red-500 underline">
-                        Privacy Policy
-                      </a>
-                    </span>
-                  </label>
-                </div>
 
                 {/* Create Account Button */}
                 <div className="text-center mt-6">
@@ -137,7 +98,7 @@ function Signup() {
                     disabled={loading}
                     className="bg-purple-600 text-white hover:bg-purple-800 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                   >
-                    Create Account
+                    Login
                   </button>
                 </div>
               </form>
@@ -163,18 +124,27 @@ function Signup() {
             </div>
           </div>
 
-          {/* To Login */}
-          <div className="text-center text-gray-500 mb-10">
-            <Link href="/auth/signin">
-              <small>
-                Already have an account?{" "}
-                <Link href="/auth/signin">
-                  <a className="cursor-pointer hover:underline text-blue-500 w-min">
-                    Login
-                  </a>
-                </Link>
-              </small>
-            </Link>
+          {/* Forgot Password */}
+          <div className="text-center text-gray-500">
+            <small>
+              <Link href="/auth/forgotpassword">
+                <a className="cursor-pointer hover:underline text-blue-500 w-min">
+                  Forgot Password?
+                </a>
+              </Link>
+            </small>
+          </div>
+
+          {/* To Register */}
+          <div className="text-center text-gray-500 mb-10 cursor-default">
+            <small>
+              Don't have an account?{" "}
+              <Link href="/auth/register">
+                <a className="cursor-pointer hover:underline text-blue-500 w-min">
+                  Sign up
+                </a>
+              </Link>
+            </small>
           </div>
         </div>
       </div>
@@ -182,4 +152,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default PasswordRecovery;
