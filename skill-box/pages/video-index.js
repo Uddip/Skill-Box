@@ -4,25 +4,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { ContextProvider } from './SocketContext';
 
-//Rendering our App component where we will have our frontend for entire Video application.
-// class VideoIndex extends Component {
-
-// if( typeof window !== 'undefined') {
-//     ReactDOM.render(
-
-
-// <ContextProvider>
-
-// <App />
-
-// </ContextProvider>
-
-
-// ,document.getElementById('root'));
-// }
-// }
-
-// export default VideoIndex;
 
 import Head from 'next/head'
 import Banner from '../components/Banner'
@@ -37,6 +18,11 @@ export default function VideoHome() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+ 
+      <div className="flex flex-col text-center uppercase md:text-4xl m-10 text-purple-600">
+        <p>SKillBox Video Call</p>
+      </div>
+
       <ContextProvider>
 
       <App />

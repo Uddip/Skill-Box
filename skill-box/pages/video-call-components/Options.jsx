@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {Assignment, Phone, PhoneDisabled } from '@material-ui/icons';
 import { SocketContext } from '../SocketContext'
+import Link from 'next/Link'
+
 
 //styles to use
 const useStyles = makeStyles((theme) => ({
@@ -18,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   container: {
-    width: '600px',
-    margin: '35px 0',
-    padding: 0,
+    width: '100%',
+    margin: 10,
+    padding: 7,
     [theme.breakpoints.down('xs')]: {
       width: '80%',
     },
@@ -32,10 +34,17 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   paper: {
-    padding: '10px 20px',
+    padding: 10,
     border: '2px solid black',
   },
  }));
+
+//refresh page function_
+function refreshPage() {
+     <Link href="video-index">
+         <a>Hang Up!</a>
+        </Link>
+  }
 
 //We have to pass the patameter children because options have notifications tag embeded in it in the App.js file.
 //Spo inorder to render that we need a children parameter.
@@ -77,7 +86,7 @@ const Options = ( {children} ) => {
            color="secondary" 
            startIcon={ <PhoneDisabled fontSize="large" />}
            fullWidth
-           onClick={ leaveCall }
+           onClick={ leaveCall , refreshPage }
            className={classes.margin}
            >
            Hang Up!

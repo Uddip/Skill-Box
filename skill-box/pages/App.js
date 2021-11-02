@@ -46,11 +46,6 @@ const App = () => {
     return (
 
         <div className={classes.wrapper}>
-
-        {/*Header component*/}
-            {/* <AppBar position="static" color="inherit" className={classes.appBar}>
-            <Typography varient="h2" align="center"> SkillBox Video Call</Typography>
-            </AppBar> */}
         
         {/* Video Player */}
          <VideoPlayer />
