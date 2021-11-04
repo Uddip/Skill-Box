@@ -1,16 +1,19 @@
-import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import ProfileHeader from '../components/ProfileHeader'
+import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ProfileInformation from "../components/ProfileInformation";
+import { FirestoreProvider } from "../contexts/FireStoreContext";
 
 function Profile() {
-    return (
-        <div>
-          <Header />
-          <ProfileHeader />
-          <Footer />  
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      <FirestoreProvider>
+        <ProfileInformation />
+      </FirestoreProvider>
+      <Footer />
+    </div>
+  );
 }
 
-export default Profile
+export default Profile;

@@ -3,7 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useAuth } from "../contexts/AuthContext";
+import { useFireStore } from "../contexts/FireStoreContext";
 import { MailIcon, KeyIcon, LockClosedIcon } from "@heroicons/react/solid";
+
+const skills = ["Art", "Stock Market", "Math"];
+const name = { first_name: "taylor", last_name: "Itsen" };
+const bio = "Hi this is a generic bio for you to get to know me!";
+const display = "itztaytay";
 
 function Signup() {
   const router = useRouter();
@@ -11,6 +17,7 @@ function Signup() {
   const passwordRef = useRef();
   const passwordConfrimRef = useRef();
   const { signup, currentUser } = useAuth();
+  const { addUserData } = useFireStore();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -25,6 +32,14 @@ function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+      await addUserData(
+        currentUser.uid,
+        display,
+        name,
+        emailRef.current.value,
+        skills,
+        bio
+      );
       router.push("/");
     } catch {
       setError("Account was not created");
@@ -49,9 +64,6 @@ function Signup() {
             {/* SignUp Title */}
             <div className="text-center mb-3">
               <h6 className="text-gray-600 text-lg font-bold">Sign Up</h6>
-              {/* Test for account information */}
-              {/* {JSON.stringify(currentUser.uid)} */}
-              {/* {currentUser && currentUser.email} */}
               {error && (
                 <div
                   class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-left mt-5"

@@ -44,9 +44,6 @@ function Login() {
             {/* SignUp Title */}
             <div className="text-center mb-3">
               <h6 className="text-gray-600 text-lg font-bold">Login</h6>
-              {/* Test for account information */}
-              {/* {JSON.stringify(currentUser.uid)} */}
-              {currentUser && currentUser.email}
               {error && (
                 <div
                   class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-left mt-5"
