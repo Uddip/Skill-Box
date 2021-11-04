@@ -43,5 +43,6 @@ this is the information section
   )
 }
 
+
 export default ProfileHeader
 

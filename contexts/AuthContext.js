@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 // Context provides authentication to rest of application
@@ -52,10 +53,13 @@ export function AuthProvider({ children }) {
 
   function resetPassword(email) {
     sendPasswordResetEmail(auth, email)
-      .then(() => {})
+      .then(() => {
+        return true;
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        return false;
       });
   }
 

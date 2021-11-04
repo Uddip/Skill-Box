@@ -67,16 +67,15 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-gray-800 shadow-md py-5 px-5 md:px-10">
-    
       <Link href="/">
-  {/* Logo/Link to Home */}
-      <div className="relative flex items-center h-10 my-auto w-32">
+        {/* Logo/Link to Home */}
+        <div className="relative flex items-center h-10 my-auto w-32">
           <div className="cursor-pointer p-2 bg-transparent hover:shadow-md">
             <p className="inline text-2xl font-bold text-gray-100">Skill</p>
             <p className="inline text-2xl font-bold text-purple-500">Box</p>
           </div>
-      </div>
-            </Link>
+        </div>
+      </Link>
 
       {/* Search */}
       <div className="relative flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
@@ -93,6 +92,7 @@ function Header() {
       {/* Options */}
       {currentUser ? (
         <div className="flex items-center justify-end text-gray-500">
+<<<<<<< HEAD
 
   {/* Friends icon */}
           <button
@@ -106,6 +106,8 @@ function Header() {
 
           </button>
 
+=======
+>>>>>>> c6a7797a2b2074baef35928bd6867af5a8ec8d80
           {/* Upload Media */}
           <button
             type="button"
@@ -124,13 +126,15 @@ function Header() {
             </Link>
           </button>
 
-           {/* Video Call Button */}
-        <button type="button" className=" h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100">
-          
-           <Link href="https://skillbox-video-call.vercel.app/">
-          <VideoCameraIcon className="h-8" />
-        </Link>
-        </button>
+          {/* Video Call Button */}
+          <button
+            type="button"
+            className=" h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
+          >
+            <Link href="https://skillbox-video-call.vercel.app/">
+              <VideoCameraIcon className="h-8" />
+            </Link>
+          </button>
 
           {/* Notifications */}
           <Popover className="relative">
