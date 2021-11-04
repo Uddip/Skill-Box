@@ -8,8 +8,7 @@ import { MailIcon, KeyIcon, LockClosedIcon } from "@heroicons/react/solid";
 function PasswordRecovery() {
   const router = useRouter();
   const emailRef = useRef();
-  const passwordRef = useRef();
-  const { login, currentUser } = useAuth();
+  const { resetPassword, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -19,7 +18,7 @@ function PasswordRecovery() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      // await login(emailRef.current.value, passwordRef.current.value);
       router.push("/");
     } catch {
       setError("Login failed");
@@ -43,12 +42,9 @@ function PasswordRecovery() {
           <div className="rounded-t px-6 py-6">
             {/* SignUp Title */}
             <div className="text-center mb-3">
-              <h6 className="text-gray-600 text-lg font-bold">
+              <h6 className="text-gray-600 select-none text-lg font-bold">
                 Password Reset
               </h6>
-              {/* Test for account information */}
-              {/* {JSON.stringify(currentUser.uid)} */}
-              {currentUser && currentUser.email}
               {error && (
                 <div
                   class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-left mt-5"
@@ -95,14 +91,11 @@ function PasswordRecovery() {
 
           {/* To Register/Login */}
           <div className="text-center text-gray-500 mb-10 cursor-default">
-            <small>
-              Don't have an account?{" "}
-              <Link href="/auth/register">
-                <a className="cursor-pointer hover:underline text-blue-500 w-min">
-                  Sign up
-                </a>
-              </Link>
-            </small>
+            <Link href="/auth/register">
+              <a className="cursor-pointer hover:underline text-blue-500 w-min">
+                Create an account
+              </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -50,6 +50,15 @@ export function AuthProvider({ children }) {
       .catch((error) => {});
   }
 
+  function resetPassword(email) {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {})
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  }
+
   // Sets current user when component is used
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -65,6 +74,7 @@ export function AuthProvider({ children }) {
     signup,
     login,
     logout,
+    resetPassword,
   };
 
   return (

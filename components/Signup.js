@@ -165,15 +165,11 @@ function Signup() {
 
           {/* To Login */}
           <div className="text-center text-gray-500 mb-10">
+            Already have an account?{" "}
             <Link href="/auth/signin">
-              <small>
-                Already have an account?{" "}
-                <Link href="/auth/signin">
-                  <a className="cursor-pointer hover:underline text-blue-500 w-min">
-                    Login
-                  </a>
-                </Link>
-              </small>
+              <a className="cursor-pointer hover:underline text-blue-500 w-min">
+                Login
+              </a>
             </Link>
           </div>
         </div>

@@ -271,14 +271,15 @@ function Header() {
                 {/* Login/Logout */}
                 <div className="px-1 py-1">
                   <Menu.Item>
-                    <div onClick={logoutUser}>
-                      <div className="p-1 flex w-full text-sm hover:bg-gray-700 text-white rounded-md cursor-pointer">
-                        <LogoutIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                        <p>Logout</p>
-                      </div>
+                    <div
+                      onClick={logoutUser}
+                      className="p-2 flex w-full text-sm hover:bg-gray-700 text-white rounded-md cursor-pointer"
+                    >
+                      <LogoutIcon
+                        className="w-5 h-5 mr-2 text-purple-400"
+                        aria-hidden="true"
+                      />
+                      <p>Logout</p>
                     </div>
                   </Menu.Item>
                 </div>
@@ -288,7 +289,7 @@ function Header() {
         </div>
       ) : (
         <div className="flex items-center justify-end text-gray-500">
-          <button className="p-1 w-2/4 h-full md:w-28 md:h-12 text-sm border-2 border-purple-500 hover:bg-purple-600 hover:border-purple-600 active:bg-purple-500 active:border-purple-500 active:scale-95 transition transform duration-150 text-gray-200 rounded-md">
+          <button className="p-1 w-2/4 h-full md:w-28 md:h-12 text-sm font-bold select-none border-2 border-purple-600 hover:bg-purple-600  active:bg-purple-800 active:border-purple-800 active:scale-95 transition transform duration-150 text-gray-200 rounded-md">
             <Link href="/auth/signin">
               <p>Login</p>
             </Link>

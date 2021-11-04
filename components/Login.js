@@ -126,25 +126,21 @@ function Login() {
 
           {/* Forgot Password */}
           <div className="text-center text-gray-500">
-            <small>
-              <Link href="/auth/forgotpassword">
-                <a className="cursor-pointer hover:underline text-blue-500 w-min">
-                  Forgot Password?
-                </a>
-              </Link>
-            </small>
+            <Link href="/auth/forgotpassword">
+              <a className="cursor-pointer hover:underline text-blue-500 w-min">
+                Forgot Password?
+              </a>
+            </Link>
           </div>
 
           {/* To Register */}
           <div className="text-center text-gray-500 mb-10 cursor-default">
-            <small>
-              Don't have an account?{" "}
-              <Link href="/auth/register">
-                <a className="cursor-pointer hover:underline text-blue-500 w-min">
-                  Sign up
-                </a>
-              </Link>
-            </small>
+            Don't have an account?{" "}
+            <Link href="/auth/register">
+              <a className="cursor-pointer hover:underline text-blue-500 w-min">
+                Sign up
+              </a>
+            </Link>
           </div>
         </div>
       </div>
