@@ -75,7 +75,7 @@ function Header() {
             <p className="inline text-2xl font-bold text-purple-500">Box</p>
           </div>
       </div>
-            </Link>}
+            </Link>
 
       {/* Search */}
       <div className="relative flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
