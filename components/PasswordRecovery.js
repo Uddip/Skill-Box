@@ -30,7 +30,7 @@ function PasswordRecovery() {
 
   return (
     <section
-      className="bg-center bg-cover bg-no-repeat md:pb-1"
+      className=" h-screen bg-center bg-cover bg-no-repeat md:pb-1"
       style={{
         backgroundImage:
           "url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80)",
@@ -43,7 +43,9 @@ function PasswordRecovery() {
           <div className="rounded-t px-6 py-6">
             {/* SignUp Title */}
             <div className="text-center mb-3">
-              <h6 className="text-gray-600 text-lg font-bold">Login</h6>
+              <h6 className="text-gray-600 text-lg font-bold">
+                Password Reset
+              </h6>
               {/* Test for account information */}
               {/* {JSON.stringify(currentUser.uid)} */}
               {currentUser && currentUser.email}
@@ -76,20 +78,6 @@ function PasswordRecovery() {
                     />
                   </div>
                 </div>
-                <div id="password" className="form-group relative w-full my-5">
-                  {/* <label className="block uppercase text-gray-600 text-xs font-bold mb-2">Password
-                  </label> */}
-                  <div className="flex flex-row items-center bg-white rounded shadow px-3 py-3">
-                    <KeyIcon className="h-5 text-gray-400" />
-                    <input
-                      type="password"
-                      ref={passwordRef}
-                      required
-                      className=" pl-3 bg-transparent w-full placeholder-gray-300 text-gray-600 text-sm focus:outline-none focus:placeholder-transparent"
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
 
                 {/* Create Account Button */}
                 <div className="text-center mt-6">
@@ -103,17 +91,6 @@ function PasswordRecovery() {
                 </div>
               </form>
             </div>
-          </div>
-
-          {/* Forgot Password */}
-          <div className="text-center text-gray-500">
-            <small>
-              <Link href="/auth/forgotpassword">
-                <a className="cursor-pointer hover:underline text-blue-500 w-min">
-                  Forgot Password?
-                </a>
-              </Link>
-            </small>
           </div>
 
           {/* To Register */}
