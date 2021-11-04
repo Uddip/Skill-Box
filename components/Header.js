@@ -143,8 +143,8 @@ function Header() {
                             <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-purple-400 sm:h-12 sm:w-12">
                               <item.icon aria-hidden="true" />
                             </div>
-                            <div className="ml-4">
-                              <p className="text-sm font-medium text-white">
+                            <div className="ml-4 flex flex-col text-left">
+                              <p className="text-sm font-medium text-white mb-1">
                                 {item.name}
                               </p>
                               <p className="text-sm">{item.description}</p>
@@ -174,7 +174,7 @@ function Header() {
                                 aria-hidden="true"
                               />
                               <span className="text-sm font-medium text-white">
-                                Notification Settings
+                                Go to Notifications
                               </span>
                             </span>
                           </div>
