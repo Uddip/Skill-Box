@@ -300,11 +300,11 @@ function Header() {
         </div>
       ) : (
         <div className="flex items-center justify-end text-gray-500">
-          <button className="p-1 w-2/4 h-full md:w-28 md:h-12 text-sm font-bold select-none border-2 border-purple-600 hover:bg-purple-600  active:bg-purple-800 active:border-purple-800 active:scale-95 transition transform duration-150 text-gray-200 rounded-md">
-            <Link href="/auth/signin">
+          <Link href="/auth/signin">
+            <div className="flex items-center justify-center p-1 w-2/4 h-full md:w-28 md:h-12 text-sm font-bold select-none border-2 border-purple-600 hover:bg-purple-600  active:bg-purple-800 active:border-purple-800 active:scale-95 transition transform duration-150 text-gray-200 rounded-md cursor-pointer">
               <p>Login</p>
-            </Link>
-          </button>
+            </div>
+          </Link>
         </div>
       )}
     </header>

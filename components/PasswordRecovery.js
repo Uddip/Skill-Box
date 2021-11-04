@@ -18,7 +18,7 @@ function PasswordRecovery() {
     try {
       setError("");
       setLoading(true);
-      // await login(emailRef.current.value, passwordRef.current.value);
+      await resetPassword(email);
       router.push("/");
     } catch {
       setError("Login failed");
