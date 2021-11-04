@@ -88,118 +88,111 @@ function Header() {
       </div>
 
       {/* Options */}
-      <div className="flex items-center justify-end text-gray-500">
-        {/* Upload Media */}
-        {currentUser ? (
-          <>
-            <button
-              type="button"
-              className="h-10 w-10 mr-1 rounded-full items-center justify-center bg-transparent hover:bg-gray-100"
-            >
-              <UploadIcon className="h-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100" />
-            </button>
-          </>
-        ) : (
-          <button hidden></button>
-        )}
+      {currentUser ? (
+        <div className="flex items-center justify-end text-gray-500">
+          {/* Upload Media */}
+          <button
+            type="button"
+            className="h-10 w-10 mr-1 rounded-full items-center justify-center bg-transparent hover:bg-gray-100"
+          >
+            <UploadIcon className="h-8 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100" />
+          </button>
 
-        {/* Chat Message */}
-        <button
+          {/* Chat Message */}
+          <button
+            type="button"
+            className="h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
+          >
+            <Link href="/chat">
+              <ChatAlt2Icon className="h-8" />
+            </Link>
+          </button>
 
-          type="button"
-          className="h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
-        >
-        <Link href="/chat">
-          <ChatAlt2Icon className="h-8" />
-        </Link>
-          
-        </button>
-
-        {/* Notifications */}
-        <Popover className="relative">
-          {({ open }) => (
-            <>
-              <Popover.Button
-                className={`
+          {/* Notifications */}
+          <Popover className="relative">
+            {({ open }) => (
+              <>
+                <Popover.Button
+                  className={`
                   ${open ? "" : "text-opacity-90"}
                    group px-2 py-2 ml-1 rounded-full inline-flex items-center justify-center text-base font-medium hover:bg-gray-100 outline-none`}
-              >
-                <BellIcon className="h-7" />
-                <span className="flex absolute h-5 w-4 -top-0 -right-0">
-                  <span className="absolute inline-flex rounded-full h-3 w-3 bg-purple-500 "></span>
-                </span>
-              </Popover.Button>
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-200"
-                enterFrom="opacity-0 translate-y-1"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo="opacity-0 translate-y-1"
-              >
-                <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-3/4 left-1/4 sm:px-0">
-                  <div className="overflow-hidden rounded-lg shadow-lg ring-2 ring-gray-600 ring-opacity-50">
-                    <div className="relative grid gap-8 bg-gray-800 p-7">
-                      {notifications.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-700 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                        >
-                          <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-purple-400 sm:h-12 sm:w-12">
-                            <item.icon aria-hidden="true" />
+                >
+                  <BellIcon className="h-7" />
+                  <span className="flex absolute h-5 w-4 -top-0 -right-0">
+                    <span className="absolute inline-flex rounded-full h-3 w-3 bg-purple-500 "></span>
+                  </span>
+                </Popover.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 translate-y-1"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 translate-y-1"
+                >
+                  <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-3/4 left-1/4 sm:px-0">
+                    <div className="overflow-hidden rounded-lg shadow-lg ring-2 ring-gray-600 ring-opacity-50">
+                      <div className="relative grid gap-8 bg-gray-800 p-7">
+                        {notifications.map((item) => (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-700 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                          >
+                            <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-purple-400 sm:h-12 sm:w-12">
+                              <item.icon aria-hidden="true" />
+                            </div>
+                            <div className="ml-4">
+                              <p className="text-sm font-medium text-white">
+                                {item.name}
+                              </p>
+                              <p className="text-sm">{item.description}</p>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                      <div className="p-4 bg-gray-800">
+                        <Link href="/settings/notifications">
+                          <div className="cursor-pointer flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                            <span className="flex items-center">
+                              <span className="text-sm font-medium text-white">
+                                <CogIcon
+                                  className="inline w-5 h-5 mr-2 text-purple-400"
+                                  aria-hidden="true"
+                                />
+                                Notification Settings
+                              </span>
+                            </span>
                           </div>
-                          <div className="ml-4">
-                            <p className="text-sm font-medium text-white">
-                              {item.name}
-                            </p>
-                            <p className="text-sm">{item.description}</p>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                    <div className="p-4 bg-gray-800">
-                      <Link href="/settings/notifications">
-                        <div className="cursor-pointer flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
-                          <span className="flex items-center">
-                            <span className="text-sm font-medium text-white">
-                              <CogIcon
+                        </Link>
+                        <Link href="/notifications">
+                          <div className="cursor-pointer flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                            <span className="flex items-center">
+                              <DesktopComputerIcon
                                 className="inline w-5 h-5 mr-2 text-purple-400"
                                 aria-hidden="true"
                               />
-                              Notification Settings
+                              <span className="text-sm font-medium text-white">
+                                Notification Settings
+                              </span>
                             </span>
-                          </span>
-                        </div>
-                      </Link>
-                      <Link href="/notifications">
-                        <div className="cursor-pointer flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-700 bg-gray-800 hover:text-gray-300 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
-                          <span className="flex items-center">
-                            <DesktopComputerIcon
-                              className="inline w-5 h-5 mr-2 text-purple-400"
-                              aria-hidden="true"
-                            />
-                            <span className="text-sm font-medium text-white">
-                              Notification Settings
-                            </span>
-                          </span>
-                        </div>
-                      </Link>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </>
-          )}
-        </Popover>
+                  </Popover.Panel>
+                </Transition>
+              </>
+            )}
+          </Popover>
 
-        {/* User Menu */}
-        {/* <AccountDropDown /> */}
-        <Menu as="div" className="relative inline-block text-left mr-1 ml-2">
-          <div>
-            <Menu.Button className="flex items-center space-x-2 rounded-full cursor-pointer hover:text-gray-100 outline-none">
-              {/* {session ? (
+          {/* User Menu */}
+          {/* <AccountDropDown /> */}
+          <Menu as="div" className="relative inline-block text-left mr-1 ml-2">
+            <div>
+              <Menu.Button className="flex items-center space-x-2 rounded-full cursor-pointer hover:text-gray-100 outline-none">
+                {/* {session ? (
                 <>
                   <img
                     onClick={signOut}
@@ -210,75 +203,74 @@ function Header() {
                 </>
               ) : (
               )} */}
-              <UserCircleIcon className="h-10" />
-            </Menu.Button>
-          </div>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items className="absolute right-0 w-56 my-2 origin-top-right bg-gray-800 divide-y divide-gray-600 rounded-md shadow-lg ring-2 ring-gray-600 ring-opacity-50 focus:outline-none">
-              {/* Profile & Settings */}
-              <div className="px-1 py-1">
-                <Link href="/profile">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        className={`${
-                          active ? "bg-gray-700 text-white" : "text-white"
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                      >
-                        {active ? (
-                          <PencilIcon
-                            className="w-5 h-5 mr-2 text-purple-400"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <PencilIcon
-                            className="w-5 h-5 mr-2 text-purple-400"
-                            aria-hidden="true"
-                          />
-                        )}
-                        Profile
-                      </button>
-                    )}
-                  </Menu.Item>
-                </Link>
-                <Link href="/settings/general">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        className={`${
-                          active ? "bg-gray-700 text-white" : "text-white"
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                      >
-                        {active ? (
-                          <CogIcon
-                            className="w-5 h-5 mr-2 text-purple-400"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <CogIcon
-                            className="w-5 h-5 mr-2 text-purple-400"
-                            aria-hidden="true"
-                          />
-                        )}
-                        Settings
-                      </button>
-                    )}
-                  </Menu.Item>
-                </Link>
-              </div>
+                <UserCircleIcon className="h-10" />
+              </Menu.Button>
+            </div>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="absolute right-0 w-56 my-2 origin-top-right bg-gray-800 divide-y divide-gray-600 rounded-md shadow-lg ring-2 ring-gray-600 ring-opacity-50 focus:outline-none">
+                {/* Profile & Settings */}
+                <div className="px-1 py-1">
+                  <Link href="/profile">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${
+                            active ? "bg-gray-700 text-white" : "text-white"
+                          } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                        >
+                          {active ? (
+                            <PencilIcon
+                              className="w-5 h-5 mr-2 text-purple-400"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <PencilIcon
+                              className="w-5 h-5 mr-2 text-purple-400"
+                              aria-hidden="true"
+                            />
+                          )}
+                          Profile
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Link>
+                  <Link href="/settings/general">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${
+                            active ? "bg-gray-700 text-white" : "text-white"
+                          } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                        >
+                          {active ? (
+                            <CogIcon
+                              className="w-5 h-5 mr-2 text-purple-400"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <CogIcon
+                              className="w-5 h-5 mr-2 text-purple-400"
+                              aria-hidden="true"
+                            />
+                          )}
+                          Settings
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Link>
+                </div>
 
-              {/* Login/Logout */}
-              <div className="px-1 py-1">
-                <Menu.Item>
-                  {currentUser ? (
+                {/* Login/Logout */}
+                <div className="px-1 py-1">
+                  <Menu.Item>
                     <div onClick={logoutUser}>
                       <div className="p-1 flex w-full text-sm hover:bg-gray-700 text-white rounded-md cursor-pointer">
                         <LogoutIcon
@@ -288,23 +280,21 @@ function Header() {
                         <p>Logout</p>
                       </div>
                     </div>
-                  ) : (
-                    <Link href="/auth/signin">
-                      <div className="p-1 flex w-full text-sm hover:bg-gray-700 text-white rounded-md cursor-pointer">
-                        <LoginIcon
-                          className="w-5 h-5 mr-2 text-purple-400"
-                          aria-hidden="true"
-                        />
-                        <p>Login</p>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
-              </div>
-            </Menu.Items>
-          </Transition>
-        </Menu>
-      </div>
+                  </Menu.Item>
+                </div>
+              </Menu.Items>
+            </Transition>
+          </Menu>
+        </div>
+      ) : (
+        <div className="flex items-center justify-end text-gray-500">
+          <button className="p-1 w-2/4 h-full md:w-28 md:h-12 text-sm border-2 border-purple-500 hover:bg-purple-600 hover:border-purple-600 active:bg-purple-500 active:border-purple-500 active:scale-95 transition transform duration-150 text-gray-200 rounded-md">
+            <Link href="/auth/signin">
+              <p>Login</p>
+            </Link>
+          </button>
+        </div>
+      )}
     </header>
   );
 }

@@ -93,7 +93,7 @@ function PasswordRecovery() {
             </div>
           </div>
 
-          {/* To Register */}
+          {/* To Register/Login */}
           <div className="text-center text-gray-500 mb-10 cursor-default">
             <small>
               Don't have an account?{" "}
