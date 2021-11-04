@@ -1,0 +1,165 @@
+
+
+
+.chatRoom_container{
+    width: 100%;
+    height: 200px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 150px;
+
+    
+
+   
+
+  }
+
+  .chatRoom_inner_container{
+    width: fit-content;
+    height: fit-content;
+    /* background-color: rgb(117, 37, 111,0.8);
+    border: solid rgb(255, 255, 255,0.3) 2px; */
+    background-attachment: scroll;
+    
+
+    border-radius: 50px;
+
+  }
+
+  .chatRoom_input_container{
+    width: 100%;
+    height: 50px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    float: left;
+  }
+
+  .id_input_container{
+    width: 100%;
+    height: 50px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    float: left;
+    margin-top: 10px;
+
+  }
+
+  .id_input{
+    width: 100%;
+    height: 40px;
+    
+    color: black;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    
+    text-align: center;
+    background-color: whitesmoke;
+    border-bottom: 2px dashed black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-color:#7B1FA2 ;
+    
+
+  }
+
+  .nickName_input{
+    width: 60%;
+    height: 40px;
+    
+    color: black;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    
+    text-align: center;
+    background-color: whitesmoke;
+    border-bottom: 2px dashed black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-color:#7B1FA2 ;
+
+  }
+
+  .nickName_input_container{
+    width: 100%;
+    height: 50px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    float: left;
+    margin-bottom:10px;
+
+  }
+
+  .chatRoom_input{
+    width: 100%;
+    height: 40px;
+    
+    color: black;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    
+    text-align: center;
+    background-color: whitesmoke;
+    border-bottom: 2px dashed black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-color:#7B1FA2 ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .chatRoom_input:focus{
+    box-shadow: 0 10px 30px -17px black;
+  }
+
+  .chatRoom_button_container{
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10px;
+    float: left;
+  }
+
+  .chat_button{ 
+    width: 100%;
+    height: 40px;
+  
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color:whitesmoke;
+    background-color: rgba(139, 92, 246);
+    border-radius: 10px;
+  }
+
+  .chat_button:hover{
+    background-color: rgb(121, 85, 206);
+    font-size: 16px;
+  }
+
+  

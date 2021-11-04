@@ -1,0 +1,140 @@
+.message_parent{
+  background-color: rgba(31, 41, 55);
+}
+
+.chat_container{
+    width: 100%;
+    height: 450px;
+  
+    display: flex;
+    justify-content: center;
+  
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    
+  
+  }
+  .chat_inner_container{
+    width: 40%;
+    height: 100%;
+  }
+  .chat_content_container{
+    width: 50%;
+    height: 90%;
+    color: white;
+    float: center;
+    overflow-y: auto;
+    font-family: Varela Round;
+    border: 5px solid rgba(139, 92, 246);
+    background-color: whitesmoke;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 20%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .chat_input_container{
+    width: 100%;
+    height: 10%;
+  
+    float: left;
+    border-bottom: 2px dashed white;
+    background-color: Transparent;
+  
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: sans-serif;
+    font-style: normal;
+    margin-top: 20px;
+    
+  }
+  .chat_input{
+    width: 90%;
+    height: 100%;
+    float: left;
+    background-color: Transparent;
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-style: normal ;
+    margin-right: 8px;
+  }
+
+  .chat_input_send{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+  
+  }
+  .chat_logout_container{
+    width: 100%;
+    display: inline-block;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    float: left;
+    margin-top: 20px;
+    
+  }
+  .chat_logout{
+    color: #D64045;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    
+  }
+  .chat_logout:hover{
+    text-decoration: underline;
+  }
+
+  .message_container{
+    width:fit-content;
+    height: 15%;
+    color:rgba(243, 244, 246) ;
+    background-color: rgba(139, 92, 246) ;
+    float: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-style:normal;
+    margin: 7px;
+    border-radius: 50px;
+    padding: 20px;
+    border: 1px solid rgba(31, 41, 55);
+  
+  }
+  /* .message_inner_container{
+    width: 100%;
+    display: inline-block;
+  
+    color:white;
+  }
+  .message_user_container{
+    width: 100%;
+    display: inline-block;
+  }
+  .message_user{
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .message_content_container{
+    width: 100%;
+    display: inline-block;
+  
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .message_content{
+    font-weight: normal;
+    font-size: 14px;
+    margin-top: 5px;
+  } */
