@@ -6,6 +6,7 @@ import {
   BellIcon,
   ChatAlt2Icon,
   VideoCameraIcon,
+  UsersIcon,
 } from "@heroicons/react/solid";
 import {
   PencilIcon,
@@ -92,6 +93,18 @@ function Header() {
       {/* Options */}
       {currentUser ? (
         <div className="flex items-center justify-end text-gray-500">
+
+  {/* Friends icon */}
+          <button
+            type="button"
+            on
+            className="h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
+          >
+          
+              <UsersIcon className="h-8" />
+           
+
+          </button>
 
           {/* Upload Media */}
           <button
