@@ -1,0 +1,83 @@
+.chat_parent{
+  text-align: center;
+  
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../public/purple_bg.jpg"), repeat scroll 0 0;
+ 
+  background-position: left;
+  background-size: cover;
+  animation: scroll 70s linear infinite;
+ 
+
+}
+
+.title_container{
+    width: 100%;
+    height: 110px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(143, 63, 207);  /*rgb(117, 37, 111);*/
+    border: solid rgb(255, 255, 255,0.3) 2px;
+  
+    /* background-color: #D64045;/*#467599;*/
+    /*border-bottom: 5px solid #fff;*/
+    /*box-shadow: 0 0 30px -18px #D64045;*/
+  
+  }
+  .title_inner_container{
+    width: 100%;
+    height: 100%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /* background-color: #083D77; */
+    border-radius: 200px;
+  }
+  .title{
+   
+    color: #fff;/*EBEBD3, C5283D*/
+    font-size: 35px;
+    display: inline-block;
+
+  }
+
+  .subTitle{
+    margin-left: 20px;
+    display: inline-block;
+    color: #fff;/*EBEBD3, C5283D*/
+    font-size: 35px;
+    letter-spacing: 2px;
+    user-select: none;
+
+  }
+  .instructions{
+    display: inline-block;
+    color: #fff;/*EBEBD3, C5283D*/
+    font-size: 22px;
+    font-family: sans-serif;
+    font-style: normal;
+    letter-spacing: 2px;
+    user-select: none;
+    margin-top: 10px;
+  }
+
+   @keyframes scroll {
+    100%{
+     background-position:0px -3000px;
+   }
+ }
+ 
+ @media (prefers-reduced-motion) {
+   .wrapper {
+     animation: scroll 200s linear infinite;
+   }
+ } 
+
+
+
+
+ 
+ 
