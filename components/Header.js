@@ -12,8 +12,8 @@ import {
   CogIcon,
   LogoutIcon,
   DesktopComputerIcon,
-  LoginIcon,
   UploadIcon,
+  UsersIcon,
 } from "@heroicons/react/outline";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -69,7 +69,7 @@ function Header() {
       <Link href="/">
         {/* Logo/Link to Home */}
         <div className="relative flex items-center h-10 my-auto w-32">
-          <div className="cursor-pointer p-2 bg-transparent hover:shadow-md">
+          <div className="cursor-pointer p-2 bg-transparent">
             <p className="inline text-2xl font-bold text-gray-100">Skill</p>
             <p className="inline text-2xl font-bold text-purple-500">Box</p>
           </div>
@@ -83,9 +83,11 @@ function Header() {
           type="text"
           placeholder="Start your search"
         />
-        <button className="hidden md:inline md:mr-2 h-8 w-8 bg-purple-500 text-gray-100 rounded-full cursor-pointer ">
-          <SearchIcon className="h-8 p-2" />
-        </button>
+        <Link href="/searchResults">
+          <button className="hidden md:inline md:mr-2 h-8 w-8 bg-purple-500 text-gray-100 rounded-full cursor-pointer ">
+            <SearchIcon className="h-8 p-2" />
+          </button>
+        </Link>
       </div>
 
       {/* Options */}
@@ -100,24 +102,24 @@ function Header() {
           </button>
 
           {/* Chat Message */}
-          <button
-            type="button"
-            className="h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
-          >
-            <Link href="/chat">
+          <Link href="/chat">
+            <button
+              type="button"
+              className="h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
+            >
               <ChatAlt2Icon className="h-8" />
-            </Link>
-          </button>
+            </button>
+          </Link>
 
           {/* Video Call Button */}
-          <button
-            type="button"
-            className=" h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
-          >
-            <Link href="https://skillbox-video-call.vercel.app/">
+          <Link href="https://skillbox-video-call.vercel.app/">
+            <button
+              type="button"
+              className=" h-10 w-10 mr-1 rounded-full flex items-center justify-center bg-transparent hover:bg-gray-100"
+            >
               <VideoCameraIcon className="h-8" />
-            </Link>
-          </button>
+            </button>
+          </Link>
 
           {/* Notifications */}
           <Popover className="relative">
@@ -229,54 +231,31 @@ function Header() {
               <Menu.Items className="absolute right-0 w-56 my-2 origin-top-right bg-gray-800 divide-y divide-gray-600 rounded-md shadow-lg ring-2 ring-gray-600 ring-opacity-50 focus:outline-none">
                 {/* Profile & Settings */}
                 <div className="px-1 py-1">
-                  <Link href="/profile">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          className={`${
-                            active ? "bg-gray-700 text-white" : "text-white"
-                          } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                        >
-                          {active ? (
-                            <PencilIcon
-                              className="w-5 h-5 mr-2 text-purple-400"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <PencilIcon
-                              className="w-5 h-5 mr-2 text-purple-400"
-                              aria-hidden="true"
-                            />
-                          )}
-                          Profile
-                        </button>
-                      )}
-                    </Menu.Item>
-                  </Link>
-                  <Link href="/settings/general">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          className={`${
-                            active ? "bg-gray-700 text-white" : "text-white"
-                          } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                        >
-                          {active ? (
-                            <CogIcon
-                              className="w-5 h-5 mr-2 text-purple-400"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <CogIcon
-                              className="w-5 h-5 mr-2 text-purple-400"
-                              aria-hidden="true"
-                            />
-                          )}
-                          Settings
-                        </button>
-                      )}
-                    </Menu.Item>
-                  </Link>
+                  <Menu.Item>
+                    <Link href="/profile">
+                      <button className="hover:bg-gray-700 text-white flex rounded-md items-center w-full px-2 py-2 text-sm">
+                        <PencilIcon
+                          className="w-5 h-5 mr-2 text-purple-400"
+                          aria-hidden="true"
+                        />
+                        Profile
+                      </button>
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                    <Link href="/settings/general">
+                      <button
+                        className="
+                            hover:bg-gray-700 text-white flex rounded-md items-center w-full px-2 py-2 text-sm"
+                      >
+                        <CogIcon
+                          className="w-5 h-5 mr-2 text-purple-400"
+                          aria-hidden="true"
+                        />
+                        Settings
+                      </button>
+                    </Link>
+                  </Menu.Item>
                 </div>
 
                 {/* Login/Logout */}
@@ -299,13 +278,13 @@ function Header() {
           </Menu>
         </div>
       ) : (
-        <div className="flex items-center justify-end text-gray-500">
-          <Link href="/auth/signin">
+        <Link href="/auth/signin">
+          <div className="flex items-center justify-end text-gray-500">
             <div className="flex items-center justify-center p-1 w-2/4 h-full md:w-28 md:h-12 text-sm font-bold select-none border-2 border-purple-600 hover:bg-purple-600  active:bg-purple-800 active:border-purple-800 active:scale-95 transition transform duration-150 text-gray-200 rounded-md cursor-pointer">
               <p>Login</p>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       )}
     </header>
   );
@@ -317,15 +296,15 @@ function IconOne() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
+      className="h-6 w-6"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
       />
     </svg>
@@ -336,15 +315,15 @@ function IconTwo() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
+      className="h-6 w-6"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
       />
     </svg>
@@ -355,15 +334,15 @@ function IconThree() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
+      className="h-6 w-6"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
       />
     </svg>

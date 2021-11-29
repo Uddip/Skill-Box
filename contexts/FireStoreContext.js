@@ -30,9 +30,12 @@ export function FirestoreProvider({ children }) {
   }
 
   // Read existing data
-  function readUserData(uid) {
-    return getDoc(doc(fs, "users", uid));
-  }
+  // async function readUserData(uid) {
+  //   let docRef = doc(fs, "users", uid);
+  //   let docSnap = await getDoc(docRef);
+
+  //   return docSnap.data();
+  // }
 
   const value = {
     addUserData,
@@ -45,4 +48,26 @@ export function FirestoreProvider({ children }) {
       {children}
     </FirestoreContext.Provider>
   );
+}
+
+export async function readUserData(uid) {
+  let docRef = doc(fs, "users", uid);
+  let docSnap = await getDoc(docRef);
+  let data = docSnap.data();
+  let dataString = `{
+    "bio":"${data.bio}",
+    "display_name":"${data.display_name}",
+    "email":"${data.email}",
+    "name":{
+      "first_name":"${data.name.first_name}",
+      "last_name":"${data.name.last_name}"
+    },
+    "skills":[
+      ${data.skills.map((skill) => `"${skill}"`)}
+    ],
+    "uid":"${data.uid}"
+  }`;
+  let theData = JSON.parse(dataString);
+
+  return theData;
 }

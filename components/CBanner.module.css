@@ -1,0 +1,201 @@
+.banner_container {
+  padding-top: 100px;
+
+  text-align: center;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../public/purple_bg_main.jpg"), repeat scroll 0 0;
+
+  background-position: left;
+  background-size: cover;
+
+  padding-bottom: 100px;
+
+  animation: scroll 70s linear infinite;
+}
+
+.welcome_container {
+  color: rgba(243, 244, 246);
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 85px;
+}
+
+.signup_container {
+  color: rgba(243, 244, 246);
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+.get_started_button {
+  width: max-content;
+  height: fit-content;
+  color: rgba(243, 244, 246);
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  background-color: rgba(139, 92, 246);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.get_started_button:hover {
+  padding: 20px;
+}
+
+@keyframes scroll {
+  100% {
+    background-position: 0px -3000px;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .wrapper {
+    animation: scroll 500s linear infinite;
+  }
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.parent_skills {
+  /* margin-left: 15%;
+    margin-right: 10%; */
+}
+.column1 {
+  margin: 3px;
+  float: left;
+  width: 500px;
+  box-sizing: border-box;
+  height: 500px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/guitar_home.png"), no-repeat;
+}
+
+.column2 {
+  margin: 3px;
+  float: left;
+  width: 500px;
+  box-sizing: border-box;
+  height: 500px;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/coding_home.png"), no-repeat;
+}
+
+.column3 {
+  margin: 3px;
+  float: left;
+  width: 500px;
+  box-sizing: border-box;
+  height: 500px;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/money_home.png"), repeat scroll 0 0;
+}
+
+.popular_skills_title {
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 45px;
+  color: rgba(31, 41, 55);
+  margin: 50px;
+  text-align: center;
+}
+
+.about_us_title {
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 45px;
+  background-color: rgba(31, 41, 55);
+  margin-top: 20px;
+  text-align: center;
+  color: rgba(139, 92, 246);
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+  color: rgba(139, 92, 246);
+  text-align: center;
+  font-style: normal;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 50%;
+}
+.grow:hover {
+  font-size: 25px;
+}
+
+.about_us_info {
+  background-color: rgba(31, 41, 55);
+  color: white;
+  font-family: sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  height: fit-content;
+}
+
+.about_section {
+  background-color: rgba(31, 41, 55);
+  height: 100%;
+}
+
+.contactrow::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.contact4 {
+  margin: 3px;
+  float: left;
+  width: 200px;
+  box-sizing: border-box;
+  height: 200px;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/money_home.png"), repeat scroll 0 0;
+}
+
+.contact3 {
+  margin: 3px;
+  float: left;
+  width: 200px;
+  box-sizing: border-box;
+  height: 200px;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/money_home.png"), repeat scroll 0 0;
+}
+
+.contact2 {
+  margin: 3px;
+  float: left;
+  width: 200px;
+  box-sizing: border-box;
+  height: 200px;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/money_home.png"), repeat scroll 0 0;
+}
+
+.contact1 {
+  margin: 3px;
+  float: left;
+  width: 200px;
+  box-sizing: border-box;
+  height: 200px;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../public/money_home.png"), repeat scroll 0 0;
+}

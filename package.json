@@ -10,6 +10,7 @@
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "firebase": "^9.2.0",
+    "kill-port": "^1.6.1",
     "next": "^11.1.2",
     "next-auth": "4.0.0-beta.4",
     "react": "^17.0.2",
